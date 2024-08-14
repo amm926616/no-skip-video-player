@@ -11,8 +11,12 @@ class VideoPlayer(QWidget):
     def __init__(self):
         super().__init__()
 
-        # File to save the last position
-        self.position_file = "last_position.json"
+        # Define the path to store resume history
+        self.data_dir = os.path.expanduser("~/.local/share/no-skip-video-player/")
+        self.position_file = os.path.join(self.data_dir, "last_position.json")
+
+        # Ensure the directory exists
+        os.makedirs(self.data_dir, exist_ok=True)
         
         # Initialize QMediaPlayer
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
@@ -48,7 +52,7 @@ class VideoPlayer(QWidget):
 
         # Set up the window
         self.setWindowTitle("No-Skip Video Player")
-        self.setWindowIcon(QIcon("icon.png"))  # Add this line to set the window icon
+        self.setWindowIcon(QIcon("icon.png"))
         self.setGeometry(100, 100, 800, 600)
 
         # Load the video file
@@ -72,7 +76,7 @@ class VideoPlayer(QWidget):
             self.playButton.setText("Pause")  # Update button text to reflect the current state
 
         else:
-            exit()
+            exit() # exit when no video is provided
 
     def playVideo(self):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
