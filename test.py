@@ -34,12 +34,12 @@ class VideoPlayer(QWidget):
         # Set up the window
         self.setWindowTitle("No Skip Video Player")
         self.setWindowIcon(QIcon("/home/adam178/Programmings/no-skip-video/icon.png"))
-        self.setGeometry(100, 100, 800, 500)
-
+        self.setGeometry(100, 100, 800, 600)
+        
         # Timer to stop video after a specific time
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.stopAndClose)
-        self.timer_active = True
+        self.timer_active = False
         self.timer_duration = 300000  # Default to 5 minutes (in milliseconds)
         
         # Load the last video file
@@ -52,8 +52,6 @@ class VideoPlayer(QWidget):
             self.setSleepTimer()
         elif event.key() == Qt.Key_N and event.modifiers() & Qt.ShiftModifier:
             self.loadVideo()
-        elif event.key() == Qt.Key_I and event.modifiers() & Qt.ShiftModifier:
-            self.showCurrentPoint()
         else:
             super().keyPressEvent(event)
     
@@ -72,11 +70,6 @@ class VideoPlayer(QWidget):
             self.timer_active = True
             self.timer.start(self.timer_duration)
             QMessageBox.information(self, "Timer Set", f"Video will stop in {minutes} minutes.")
-
-    def showCurrentPoint(self):
-        currentPoint = self.mediaPlayer.position()
-        minutePoint = currentPoint / 60000
-        QMessageBox.information(self, "You Lasted?", f"How Long Have I lasted? - {minutePoint}")
     
     def savePosition(self, position):
         # Get the current file URL
@@ -105,8 +98,6 @@ class VideoPlayer(QWidget):
             self.timer_active = last_position.get("timer_active", False)
 
             if file_url and position is not None:
-                filename = os.path.basename(QUrl(file_url).toLocalFile())
-                self.setWindowTitle(f"Last Loaded: {filename}")
                 self.mediaPlayer.setMedia(QMediaContent(QUrl(file_url)))
                 self.mediaPlayer.setPosition(position)
 
@@ -114,7 +105,8 @@ class VideoPlayer(QWidget):
                 self.mediaPlayer.play()
 
                 if self.timer_active:
-                    self.timer.start(self.timer_duration)                
+                    self.timer.start(self.timer_duration)
+                
         else:
             # If no position file exists, open a file dialog to select a video file
             self.loadVideo()
@@ -129,10 +121,6 @@ class VideoPlayer(QWidget):
 
             # Automatically start playing the video
             self.mediaPlayer.play()
-
-            name = os.path.basename(QUrl(fileUrl).toLocalFile())
-            self.setWindowTitle(f"Loaded: {name}")
-
         else:
             exit()
     
