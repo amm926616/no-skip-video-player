@@ -67,8 +67,12 @@ class VideoPlayer(QWidget):
             # Check if there's a saved position
             self.resumePosition()
 
+            # Automatically start playing the video
+            self.mediaPlayer.play()
+            self.playButton.setText("Pause")  # Update button text to reflect the current state
+
         else:
-            self.statusLabel.setText("No video selected")
+            exit()
 
     def playVideo(self):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
