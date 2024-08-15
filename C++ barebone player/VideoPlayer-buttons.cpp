@@ -1,12 +1,12 @@
 #include <QApplication>
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QPushButton>
 #include <QFileDialog>
 #include <QMediaPlayer>
 #include <QVideoWidget>
-#include <QKeyEvent>
 #include <QUrl>
-#include <QIcon>
+#include <QHBoxLayout>
 
 class VideoPlayer : public QWidget {
     Q_OBJECT
@@ -19,40 +19,35 @@ public:
         // Create Video Widget
         QVideoWidget *videoWidget = new QVideoWidget(this);
 
+        // Create buttons
+        QPushButton *loadButton = new QPushButton("Load Video", this);
+        QPushButton *forwardButton = new QPushButton("Forward 3s", this);
+        QPushButton *backwardButton = new QPushButton("Backward 3s", this);
+
+        // Connect buttons to slots
+        connect(loadButton, &QPushButton::clicked, this, &VideoPlayer::loadVideo);
+        connect(forwardButton, &QPushButton::clicked, this, &VideoPlayer::seekForward);
+        connect(backwardButton, &QPushButton::clicked, this, &VideoPlayer::seekBackward);
+
         // Set up the layout
         QVBoxLayout *mainLayout = new QVBoxLayout(this);
         mainLayout->addWidget(videoWidget);
+        mainLayout->addWidget(loadButton);
+
+        QHBoxLayout *seekLayout = new QHBoxLayout();
+        seekLayout->addWidget(backwardButton);
+        seekLayout->addWidget(forwardButton);
+
+        mainLayout->addLayout(seekLayout);
+
         setLayout(mainLayout);
 
         // Connect mediaPlayer to videoWidget
         mediaPlayer->setVideoOutput(videoWidget);
 
         // Set up the window
-        setWindowTitle("Simple Video Player in Qt");
-        setWindowIcon(QIcon("icon.png"));  // Set the window icon
+        setWindowTitle("Video Player with Seeking");
         setGeometry(100, 100, 600, 400);
-    }
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override {
-        switch (event->key()) {
-            case Qt::Key_Space:
-                togglePlayPause();
-                break;
-            case Qt::Key_Left:
-                seekBackward();
-                break;
-            case Qt::Key_Right:
-                seekForward();
-                break;
-            case Qt::Key_O:
-                if (event->modifiers() & Qt::ControlModifier) {
-                    loadVideo();
-                }
-                break;
-            default:
-                QWidget::keyPressEvent(event);
-        }
     }
 
 private slots:
@@ -61,15 +56,6 @@ private slots:
         QString fileUrl = QFileDialog::getOpenFileName(this, "Open Video", "", "Videos (*.mp4 *.avi *.mkv)");
         if (!fileUrl.isEmpty()) {
             mediaPlayer->setMedia(QUrl::fromLocalFile(fileUrl));
-            mediaPlayer->play();
-        }
-    }
-
-    void togglePlayPause() {
-        // Toggle between play and pause
-        if (mediaPlayer->state() == QMediaPlayer::PlayingState) {
-            mediaPlayer->pause();
-        } else {
             mediaPlayer->play();
         }
     }

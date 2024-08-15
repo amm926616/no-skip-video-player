@@ -1,6 +1,8 @@
 QT += widgets multimedia multimediawidgets
 
-TARGET = SimpleVideoPlayer
+TARGET = VideoPlayerWithIcon
 TEMPLATE = app
 
 SOURCES += main.cpp
+
+
