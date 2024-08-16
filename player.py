@@ -5,6 +5,7 @@ from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import QUrl, Qt, QTimer
 from PyQt5.QtGui import QIcon
+from easy_json import get_value, edit_value
 
 class VideoPlayer(QWidget):
     def __init__(self):
@@ -40,7 +41,7 @@ class VideoPlayer(QWidget):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.stopAndClose)
         self.timer_active = True
-        self.timer_duration = 300000  # Default to 5 minutes (in milliseconds)
+        self.timer_duration = get_value("timer_set", "/home/adam178/.local/share/no-skip-video-player/last_position.json")  # Default to 5 minutes (in milliseconds)
         
         # Load the last video file
         self.loadLastVideo()
@@ -69,6 +70,7 @@ class VideoPlayer(QWidget):
         
         if ok:
             self.timer_duration = minutes * 60000  # Convert minutes to milliseconds
+            edit_value("timer_set", self.timer_duration, "/home/adam178/.local/share/no-skip-video-player/last_position.json")
             self.timer_active = True
             self.timer.start(self.timer_duration)
             QMessageBox.information(self, "Timer Set", f"Video will stop in {minutes} minutes.")
@@ -87,7 +89,8 @@ class VideoPlayer(QWidget):
             last_position = {
                 "position": position,
                 "file": file_url,
-                "timer_active": self.timer_active  # Save the timer status
+                "timer_active": self.timer_active,  # Save the timer status
+                "timer_set": self.timer_duration
             }
             with open(self.position_file, 'w') as f:
                 json.dump(last_position, f)
