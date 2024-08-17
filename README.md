@@ -9,6 +9,7 @@ It is like eating a whole big cake.
 ### Shortcuts
 - Shift O >> load a file
 - Shift T >> Set timer
+- Ctrl T >> Activate/Deactivate Timer
 - Shift I >> Check current playing point in minutes.
 
 The previous loaded file and the time point are recorded in the ~/.local/share/no-skip-video-player/last_position.json
