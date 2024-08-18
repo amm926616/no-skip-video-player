@@ -1,0 +1,828 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"his",
+				"high_res_url"
+			],
+			[
+				"windo",
+				"setWindowTitle"
+			],
+			[
+				"hi",
+				"high_res_link"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/adam178/my git repos/no-skip-video/player.py",
+			"settings":
+			{
+				"buffer_size": 6303,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					250,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"BAAAAFwFAAAAAAAAXQUAAAAAAAAAAAAAXQUAAAAAAABdBQAAAAAAAAMAAAA1MDBdBQAAAAAAAF4FAAAAAAAAAAAAAF4FAAAAAAAAXwUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXAUAAAAAAABfBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					258,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAALoBAAAAAAAAvQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAugEAAAAAAAC6AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					259,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAL0BAAAAAAAAwAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvQEAAAAAAAC9AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					260,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAMABAAAAAAAAwwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAEAAAAAAADAAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					261,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAMMBAAAAAAAAxgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwwEAAAAAAADDAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					262,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAMYBAAAAAAAAyQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxgEAAAAAAADGAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					263,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAMkBAAAAAAAAzAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAyQEAAAAAAADJAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					264,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAMwBAAAAAAAAzwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzAEAAAAAAADMAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					265,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAM8BAAAAAAAA0gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzwEAAAAAAADPAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					266,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAANIBAAAAAAAA1QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0gEAAAAAAADSAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					267,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAANUBAAAAAAAA2AEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1QEAAAAAAADVAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					268,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAANgBAAAAAAAA2wEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AEAAAAAAADYAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					269,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAANsBAAAAAAAA3gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2wEAAAAAAADbAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					270,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAN4BAAAAAAAA4QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3gEAAAAAAADeAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					271,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAOEBAAAAAAAA5AEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4QEAAAAAAADhAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					272,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAOQBAAAAAAAA5wEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5AEAAAAAAADkAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					273,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAOcBAAAAAAAA6gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5wEAAAAAAADnAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					274,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAOoBAAAAAAAA7QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6gEAAAAAAADqAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					275,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAO0BAAAAAAAA8AEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7QEAAAAAAADtAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					276,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAPABAAAAAAAA8wEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA8AEAAAAAAADwAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					277,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAPMBAAAAAAAA9gEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA8wEAAAAAAADzAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					278,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAPYBAAAAAAAA+QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9gEAAAAAAAD2AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					279,
+					1,
+					"insert",
+					{
+						"characters": "450"
+					},
+					"AQAAAPkBAAAAAAAA/AEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+QEAAAAAAAD5AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					295,
+					1,
+					"left_delete",
+					null,
+					"AQAAALoBAAAAAAAAugEAAAAAAABCAAAANDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUwNDUw",
+					"AQAAAAAAAAABAAAAugEAAAAAAAD8AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					310,
+					1,
+					"insert",
+					{
+						"characters": "my"
+					},
+					"AwAAAA0FAAAAAAAADgUAAAAAAAAAAAAADgUAAAAAAAAOBQAAAAAAAAwAAABQcm9ncmFtbWluZ3MOBQAAAAAAAA8FAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADQUAAAAAAAAZBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					311,
+					1,
+					"insert",
+					{
+						"characters": " git"
+					},
+					"BAAAAA8FAAAAAAAAEAUAAAAAAAAAAAAAEAUAAAAAAAARBQAAAAAAAAAAAAARBQAAAAAAABIFAAAAAAAAAAAAABIFAAAAAAAAEwUAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADwUAAAAAAAAPBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					312,
+					1,
+					"insert",
+					{
+						"characters": " repos"
+					},
+					"BgAAABMFAAAAAAAAFAUAAAAAAAAAAAAAFAUAAAAAAAAVBQAAAAAAAAAAAAAVBQAAAAAAABYFAAAAAAAAAAAAABYFAAAAAAAAFwUAAAAAAAAAAAAAFwUAAAAAAAAYBQAAAAAAAAAAAAAYBQAAAAAAABkFAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEwUAAAAAAAATBQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					355,
+					4,
+					"left_delete",
+					null,
+					"BAAAAA0GAAAAAAAADQYAAAAAAAABAAAAZQwGAAAAAAAADAYAAAAAAAABAAAAdQsGAAAAAAAACwYAAAAAAAABAAAAcgoGAAAAAAAACgYAAAAAAAABAAAAVA",
+					"AQAAAAAAAAABAAAADgYAAAAAAAAOBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					356,
+					1,
+					"insert",
+					{
+						"characters": "False"
+					},
+					"BQAAAAoGAAAAAAAACwYAAAAAAAAAAAAACwYAAAAAAAAMBgAAAAAAAAAAAAAMBgAAAAAAAA0GAAAAAAAAAAAAAA0GAAAAAAAADgYAAAAAAAAAAAAADgYAAAAAAAAPBgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACgYAAAAAAAAKBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					385,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAALYIAAAAAAAAtwgAAAAAAAAAAAAAtwgAAAAAAADDCAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAtggAAAAAAAC2CAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					386,
+					1,
+					"left_delete",
+					null,
+					"AQAAAL8IAAAAAAAAvwgAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAAwwgAAAAAAADDCAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					387,
+					1,
+					"insert",
+					{
+						"characters": "elif"
+					},
+					"BAAAAL8IAAAAAAAAwAgAAAAAAAAAAAAAwAgAAAAAAADBCAAAAAAAAAAAAADBCAAAAAAAAMIIAAAAAAAAAAAAAMIIAAAAAAAAwwgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvwgAAAAAAAC/CAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					388,
+					1,
+					"insert",
+					{
+						"characters": " event"
+					},
+					"BgAAAMMIAAAAAAAAxAgAAAAAAAAAAAAAxAgAAAAAAADFCAAAAAAAAAAAAADFCAAAAAAAAMYIAAAAAAAAAAAAAMYIAAAAAAAAxwgAAAAAAAAAAAAAxwgAAAAAAADICAAAAAAAAAAAAADICAAAAAAAAMkIAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwwgAAAAAAADDCAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					389,
+					1,
+					"insert_completion",
+					{
+						"completion": "closeEvent",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "closeEvent"
+					},
+					"AgAAAMQIAAAAAAAAxAgAAAAAAAAFAAAAZXZlbnTECAAAAAAAAM4IAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAyQgAAAAAAADJCAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					390,
+					10,
+					"left_delete",
+					null,
+					"CgAAAM0IAAAAAAAAzQgAAAAAAAABAAAAdMwIAAAAAAAAzAgAAAAAAAABAAAAbssIAAAAAAAAywgAAAAAAAABAAAAZcoIAAAAAAAAyggAAAAAAAABAAAAdskIAAAAAAAAyQgAAAAAAAABAAAARcgIAAAAAAAAyAgAAAAAAAABAAAAZccIAAAAAAAAxwgAAAAAAAABAAAAc8YIAAAAAAAAxggAAAAAAAABAAAAb8UIAAAAAAAAxQgAAAAAAAABAAAAbMQIAAAAAAAAxAgAAAAAAAABAAAAYw",
+					"AQAAAAAAAAABAAAAzggAAAAAAADOCAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/adam178/my git repos/sqlite-personal-dictionary/for linux/vmanager-linux.py",
+			"settings":
+			{
+				"buffer_size": 7295,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: intall",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Add Repository"
+			],
+			[
+				"Snippet: ",
+				"Snippet: __magic__"
+			],
+			[
+				"INSTALL PA",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/adam178/my git repos/no-skip-video/test1.py",
+		"/home/adam178/my git repos/sqlite-personal-dictionary/for linux/vmanager-linux.py",
+		"/home/adam178/Downloads/b7beba6f962110596660-c416f9a2231ba45b1290a9b9536e6c4a87567af4/auto-remove-sublime-license-popup",
+		"/home/adam178/.config/sublime-text/Packages/User/auto-remove-sublime-license-popup.py",
+		"/home/adam178/my git repos/desktop app callers/Enjoy Porn(No Skip Video Player).desktop",
+		"/home/adam178/my git repos/desktop app callers/vmanager.desktop",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/for linux/vmanager-linux.py",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/for linux/requirements.txt",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/for windows/requirements.txt",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/for linux/setup.py",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/requirements.txt",
+		"/home/adam178/Programmings/bin/vmanager-linux.py",
+		"/home/adam178/Programmings/desktop app callers/vmanager.desktop",
+		"/home/adam178/.local/share/applications/vmanager.desktop",
+		"/home/adam178/.config/metart/downloaded_url.txt",
+		"/home/adam178/Programmings/bin/kkscrape.py",
+		"/home/adam178/Programmings/bin/ppscrape.py",
+		"/home/adam178/Programmings/bin/babysource.py",
+		"/home/adam178/Programmings/bin/pornhat.py",
+		"/home/adam178/Programmings/met-art-from-kitty-kat-scrapper/kkscrape.py",
+		"/home/adam178/Desktop/take.txt",
+		"/home/adam178/Desktop/script.py",
+		"/home/adam178/Desktop/urls.txt",
+		"/home/adam178/Desktop/New Folder/urls.txt",
+		"/home/adam178/Desktop/2023-11-03 TeenPornStorage Aura - Private Time/urls.txt",
+		"/home/adam178/Programmings/no-skip-video/videoplayer.py",
+		"/home/adam178/Programmings/no-skip-video/player.py",
+		"/home/adam178/Desktop/output.txt",
+		"/home/adam178/Programmings/bin/pornpics.py",
+		"/home/adam178/Programmings/bin/eporner.py",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/.metart/downloaded_url.txt",
+		"/home/adam178/testing_scrapping/ui_dump.xml",
+		"/home/adam178/test_extracting/window_dump.xml",
+		"/home/adam178/Programmings/android scrapping/Eps-Topik Vocabulary/res/drawable/$applovin_ic_mute_to_unmute__0.xml",
+		"/home/adam178/Programmings/android scrapping/Eps-Topik Vocabulary/res/layout/abc_action_bar_title_item.xml",
+		"/home/adam178/Programmings/android scrapping/combined_text.txt",
+		"/home/adam178/Programmings/Task-Tails/main.py",
+		"/home/adam178/Programmings/Task-Tails/easy_json.py",
+		"/home/adam178/.local/share/no-skip-video-player/last_position.json",
+		"/run/media/adam178/Extra HDD/.MetArt/mikaB_pres/model-bio_Mika-B.txt",
+		"/home/adam178/Programmings/no-skip-video/C++ barebone player/VideoPlayer.pro",
+		"/home/adam178/Programmings/no-skip-video/C++ barebone player/main.cpp",
+		"/home/adam178/Programmings/no-skip-video/C++ barebone player/VideoPlayer-buttons.cpp",
+		"/home/adam178/Programmings/no-skip-video/README.md",
+		"/home/adam178/Programmings/met-art-from-kitty-kat-scrapper/README.md",
+		"/home/adam178/Programmings/amm926616.github.io/style.css",
+		"/home/adam178/Programmings/VideoPlayer/main.cpp",
+		"/home/adam178/Programmings/VideoPlayer/VideoPlayer.pro",
+		"/home/adam178/Programmings/VideoPlayer/instruction.md",
+		"/home/adam178/Programmings/bin/batch_download_wget.sh",
+		"/home/adam178/urls.txt",
+		"/home/adam178/Programmings/no-skip-video/test.py",
+		"/home/adam178/.local/share/applications/Enjoy Porn(No Skip Video Player).desktop",
+		"/home/adam178/Programmings/bin/links.txt",
+		"/home/adam178/test.py",
+		"/home/adam178/player.py",
+		"/home/adam178/.local/share/applications/Enjoy Porn.desktop",
+		"/home/adam178/Programmings/sqlite-personal-dictionary/for linux/ vmanager-linux.py",
+		"/home/adam178/.local/share/applications/No Skip Video Player(Enjoy Porn).desktop",
+		"/home/adam178/Desktop/vmanager.desktop",
+		"/home/adam178/Programmings/vmanager.desktop",
+		"/home/adam178/Downloads/Python-QT-VideoPlayer-master/README.md",
+		"/home/adam178/Downloads/qt6_video_player-master/README.md",
+		"/home/adam178/Downloads/qt6_video_player-master/app.py",
+		"/home/adam178/Programmings/no-skip-video/buggy.py",
+		"/home/adam178/Downloads/no-skip-video-main/player.py",
+		"/home/adam178/.config/sublime-text/Packages/User/Preferences.sublime-settings",
+		"/home/adam178/Programmings/bin/vmanager.py",
+		"/home/adam178/last_position.json",
+		"/home/adam178/Programmings/no-skip-video/no-skip-video-player.desktop",
+		"/home/adam178/Programmings/no-skip-video/vmanager.desktop",
+		"/home/adam178/noskip.py",
+		"/home/adam178/Programmings/bin/combined-kitty-kat-scrapper.py",
+		"/home/adam178/Programmings/bin/turbo.py",
+		"/home/adam178/Programmings/bin/imgspice.py",
+		"/home/adam178/disable-popup.py",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/.metart/urls.txt",
+		"/home/adam178/Programmings/bin/test.py",
+		"/home/adam178/imgspice.py",
+		"/home/adam178/scraper.py",
+		"/home/adam178/prototype.py",
+		"/home/adam178/imagescrapper.py",
+		"/home/adam178/Programmings/bin/ppscrap.py",
+		"/home/adam178/Programmings/bin/testing site/kkscrape.py",
+		"/home/adam178/Dena/vmanager.py",
+		"/home/adam178/Documents/hellothere",
+		"/home/adam178/Documents/notes.txt",
+		"/home/adam178/.config/zotify/config.json",
+		"/home/adam178/track_aespa.py",
+		"/home/adam178/config.txt",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/Zotify Music/aespa/Armageddon - The 1st Album/06 - aespa - BAHAMA.lrc",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/Zotify Music/aespa/Armageddon - The 1st Album/01 - aespa - Supernova.lrc",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/Zotify Music/aespa/Armageddon - The 1st Album/02 - aespa - Armageddon.lrc",
+		"/home/adam178/.bashrc",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/ ocean eyes.lrc",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/music videos/aespa/ aespa 에스파 Supernova MV.srt",
+		"/home/adam178/Programmings/srt2lrc/srt2lrc.py",
+		"/home/adam178/Programmings/srt2lrc/aespa - Armageddon.lrc",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/Zotify Music/aespa/Armageddon - The 1st Album/create.py",
+		"/run/media/adam178/6abf3584-a2fd-495a-bdc1-b9f4dfee84e3/Music/Zotify Music/aespa/Armageddon - The 1st Album/output.lrc",
+		"/home/adam178/.config/EasyPaste/info.json",
+		"/home/adam178/Programmings/bin/search.py",
+		"/home/adam178/.config/StardewValley/Saves/Neverland_376289631/Neverland_376289631",
+		"/home/adam178/python_env/test.py",
+		"/home/adam178/Desktop/base/res/layout/abc_action_bar_title_item.xml",
+		"/home/adam178/Desktop/base/AndroidManifest.xml",
+		"/home/adam178/Programmings/chess-main/script.js",
+		"/home/adam178/Programmings/chess-main/index.html",
+		"/home/adam178/Programmings/chess-main/style.css",
+		"/home/adam178/Programmings/chess-main/pass.txt",
+		"/home/adam178/test.js",
+		"/home/adam178/Programmings/first-puppeteer-scraper-example/package.json",
+		"/home/adam178/Programmings/first-puppeteer-scraper-example/scrap.js",
+		"/home/adam178/Programmings/browser-extensions/manifest.json",
+		"/home/adam178/Programmings/browser-extensions/hello.html",
+		"/home/adam178/Programmings/browser-extensions/geturl.js",
+		"/home/adam178/Programmings/browser-extensions/popup.js",
+		"/home/adam178/Documents/fstab.txt",
+		"/home/adam178/.config/EasyPaste-python/aios/aios_info.json",
+		"/home/adam178/Documents/downhere.py"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 127.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"videoWidget",
+			"adjustWindowSize",
+			"https://kitty-kats.net/threads/taylor-sands-future-bride-174-picture-5760px-23-oct-2020.2727984/",
+			"https://kitty-kats.net/threads/mila-azul-role-103-pictures-px-26-jun-2022.2798502/",
+			"https://kitty-kats.net/threads/mila-azul-buxom-babe-x90-4220px-7-feb-2023.2808305/",
+			"https://kitty-kats.net/threads/ariana-regent-presenting-ariana-regent-x121-01-feb-2024.2840012/",
+			"https://kitty-kats.net/threads/lola-marron-moriha-163-pics-5616px.2783005/unread",
+			"high_res_url",
+			"setSleepTimer",
+			"img",
+			")                ",
+			"stopAndClose",
+			"timer_active",
+			"timer_duration",
+			"savePosition",
+			"disableSeeking",
+			"last_position",
+			"fileUrl",
+			"self.mediaPlayer.position",
+			"position",
+			"disableSeeking",
+			"savePosition",
+			"stopAndClose",
+			"savePosition",
+			"timer_duration",
+			"disable",
+			"disableSeeking",
+			"self.setStyleSheet",
+			"https://kitty-kats.net/threads/taylor-sands-peek-2450-pictures-5760px-24-oct-2020.2728118/",
+			"/\n",
+			"https://kitty-kats.net/threads/stacy-cruz-table-setting-113-pictures-6000px-18-may-2022.2793852/",
+			"https://kitty-kats.net/threads/stacy-cruz-sleek-130-pictures-6000px-22-mar-2022.2788101/",
+			"1du45fpnjq0k.jpg\n",
+			"a7g99bw7ccuh.jpg\n",
+			"8bcre0p87ms9.jpg\n",
+			"jc2zqqolm4w3.jpg\n",
+			"mw307lirvgce.jpg",
+			"p9waadn21h2v.jpg",
+			"rp6c97bu45xl.jpg",
+			"8p8ek01dgcz1.jpg",
+			"r04dmo225te6.jpg",
+			"https://kitty-kats.net/threads/stacy-cruz-perfect-pink-x155-27-jun-2023.2820163/",
+			"https://s10.imagetwist.com/i/56882/3k4pivgzril7.jpg/_SexArt-Perfect-Pink-cover.jpg",
+			"https://kitty-kats.net/threads/stacy-cruz-ottoman-136-pictures-4368px-7-jan-2020.2688000/",
+			"Stacy Cruz",
+			"https://kitty-kats.net/threads/stacy-cruz-black-heels-136-pictures-4368px-27-may-2019.2659638/",
+			"https://kitty-kats.net/threads/stacy-cruz-my-pallet-solo-139-pictures-4368px-7-mar-2019.2643691/",
+			"https://kitty-kats.net/threads/angela-aka-toxic-starlet-78-pics-4324px.2751607/",
+			"https://kitty-kats.net/threads/mila-azul-plum-sexy-x96-5184px-3-oct-2019.2676376/",
+			"https://kitty-kats.net/threads/angela-toxic-a-burgun-1-55-pics-may-10-2016.2835704/",
+			"https://kitty-kats.net/threads/toxic-a-tronua-128-pics-4324px.2685249/",
+			"lalli",
+			"https://kitty-kats.net/threads/lily-blossom-fuck-me-lily-blossom-60-pictures-7680px-5-mar-2024.2843303/",
+			"https://kitty-kats.net/threads/lily-blossom-kiss-it-x130-23-nov-2023.2833745/\n",
+			"lily-blossom-kiss-it-x130-23-nov-2023.",
+			"https://kitty-kats.net/threads/lily-blossom-naughty-uniform-1-116-pictures-7373px-11-apr-2024.2847477/",
+			"lily-blossom-naughty-uniform-1-116-pictures-7373px-11-apr-2024.2847477/",
+			"https://kitty-kats.net/threads/lily-blossom-presenting-lily-blossom-x181-14-oct-2023.2830198/",
+			"https://kitty-kats.net/threads/gloria-sol-star-of-the-rocks-2-46-pictures-3000px-10-apr-2020.2765195/",
+			"https://kitty-kats.net/threads/gloria-sol-cifea-5760px-122-pictures-05-oct-2017.2534754/",
+			"https://kitty-kats.net/threads/lottie-magne-sweet-tea-1-120-pictures-8688px-16-may-2021.2754250/",
+			"https://kitty-kats.net/threads/genevieve-gandi-all-alone-122-pictures-5616px-16-apr-2020.2772934/",
+			"https://kitty-kats.net/threads/genevieve-gandi-eolia-122-pictures-20-feb-2017.2483618/",
+			"https://kitty-kats.net/threads/hilary-c-sexy-sass-x114-4720px-16-apr-2021.2750504/",
+			"https://kitty-kats.net/threads/hilary-c-head-over-heels-x105-19-mar-2023.2811320/",
+			"https://kitty-kats.net/threads/hilary-c-feather-soft-x113-05-feb-2024.2840370/\n",
+			"https://kitty-kats.net/threads/hilary-c-feather-soft-x113-05-feb-2024.2840370/",
+			"https://kitty-kats.net/threads/hilary-c-model-muse-x122-14-may-2023.2816702/",
+			"save_folder",
+			"delete_entry",
+			"5",
+			"<money>",
+			".jpeg",
+			"folder_name",
+			"projectM"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" "
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/adam178/my git repos/no-skip-video/player.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2685,
+								2685
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 882.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/adam178/my git repos/sqlite-personal-dictionary/for linux/vmanager-linux.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								503,
+								584
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Makefile.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

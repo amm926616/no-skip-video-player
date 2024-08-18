@@ -1,15 +1,25 @@
+#! /usr/bin/env python
+
 import sys, os, json
 import json
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QInputDialog, QMessageBox, QFileDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QInputDialog, QMessageBox, QFileDialog, QDockWidget
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import QUrl, Qt, QTimer
 from PyQt5.QtGui import QIcon
 from easy_json import get_value, edit_value
+from pynput import keyboard
 
 class VideoPlayer(QWidget):
     def __init__(self):
         super().__init__()
+        # for .json file location
+        self.config_file = "/home/adam178/.local/share/no-skip-video-player/last_position.json"
+
+        # wtf always on top worked!
+        self.alwaysOnTopState = get_value("alwaysOnTopState", self.config_file)
+        if self.alwaysOnTopState:
+            self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
 
         # Define the path to store resume history
         self.data_dir = os.path.expanduser("~/.local/share/no-skip-video-player/")
@@ -31,30 +41,63 @@ class VideoPlayer(QWidget):
 
         # Connect mediaPlayer to videoWidget
         self.mediaPlayer.setVideoOutput(videoWidget)
+        self.mediaPlayer.mediaStatusChanged.connect(self.handleMediaStatusChanged)
 
         # Set up the window
         self.setWindowTitle("No Skip Video Player")
-        self.setWindowIcon(QIcon("/home/adam178/Programmings/no-skip-video/icon.png"))
-        self.setGeometry(100, 100, 800, 500)
+        self.setWindowIcon(QIcon("/home/adam178/MyGitRepos/no-skip-video/icon.png"))
+        self.setGeometry(100, 100, 800, 450)
 
         # Timer to stop video after a specific time
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.stopAndClose)
-        self.timer_active = True
-        self.timer_duration = get_value("timer_set", "/home/adam178/.local/share/no-skip-video-player/last_position.json")  # Default to 5 minutes (in milliseconds)
+        self.timer_active = get_value("timer_active", self.config_file)
+        self.timer_duration = get_value("timer_set", self.config_file)  # Default to 5 minutes (in milliseconds)
         
+        # filename for addition << emergency bad code
+        self.filename = ""
+
         # Load the last video file
         self.loadLastVideo()
+
+        # for alwaysontop global key, implement later
+        # with keyboard.Listener(on_press=self.on_presses, on_release=self.on_release) as listener:
+        #     listener.join()
+
+    # def on_presses(self, key):
+    #     try:
+    #         if key.char == 'a' and keyboard.Controller().shift:
+    #             self.setAlwaysOnTop()
+    #     except AttributeError:
+    #         pass  # Handle other non-character keys here if needed
+
+    # def on_release(self, key):
+    #     # Stop listener on `esc` key press
+    #     if key == keyboard.Key.esc:
+    #         return False
+
+    def setAlwaysOnTop(self):
+        if self.alwaysOnTopState:
+            self.alwaysOnTopState = False
+        else:
+            self.alwaysOnTopState = True
+        QMessageBox.information(self, 
+                                "Always On Top State",  # Title of the message box
+                                f"alwaysOnTopState: {self.alwaysOnTopState}")  # Text to display
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Space:
             self.playVideo()
         elif event.key() == Qt.Key_T and event.modifiers() & Qt.ShiftModifier:
             self.setSleepTimer()
+        elif event.key() == Qt.Key_T and event.modifiers() & Qt.ControlModifier:
+            self.setTimerState()
         elif event.key() == Qt.Key_N and event.modifiers() & Qt.ShiftModifier:
             self.loadVideo()
         elif event.key() == Qt.Key_I and event.modifiers() & Qt.ShiftModifier:
             self.showCurrentPoint()
+        elif event.key() == Qt.Key_A and event.modifiers() & Qt.ShiftModifier:
+            self.setAlwaysOnTop()
         else:
             super().keyPressEvent(event)
     
@@ -64,14 +107,31 @@ class VideoPlayer(QWidget):
         else:
             self.mediaPlayer.play()
 
+    def handleMediaStatusChanged(self, status):
+        if status == QMediaPlayer.EndOfMedia:
+            self.mediaPlayer.setPosition(0)  # Reset position to start
+            self.mediaPlayer.play() 
+            
+    def setTimerState(self):
+        message = ""
+        if (self.timer_active == True):
+            self.timer_active = False
+            self.timer.stop()
+        else:
+            self.timer.start(self.timer_duration)
+            self.timer_active = True
+        
+        self.setTitle(self.filename)
+
     def setSleepTimer(self):
         # Popup window to set timer
         minutes, ok = QInputDialog.getInt(self, "Set Sleep Timer", "Enter sleep time in minutes:", 5, 1, 120, 1)
         
         if ok:
             self.timer_duration = minutes * 60000  # Convert minutes to milliseconds
-            edit_value("timer_set", self.timer_duration, "/home/adam178/.local/share/no-skip-video-player/last_position.json")
+            edit_value("timer_set", self.timer_duration, self.config)
             self.timer_active = True
+            self.setTitle(self.filename)
             self.timer.start(self.timer_duration)
             QMessageBox.information(self, "Timer Set", f"Video will stop in {minutes} minutes.")
 
@@ -90,7 +150,8 @@ class VideoPlayer(QWidget):
                 "position": position,
                 "file": file_url,
                 "timer_active": self.timer_active,  # Save the timer status
-                "timer_set": self.timer_duration
+                "timer_set": self.timer_duration,
+                "alwaysOnTopState": self.alwaysOnTopState
             }
             with open(self.position_file, 'w') as f:
                 json.dump(last_position, f)
@@ -109,7 +170,8 @@ class VideoPlayer(QWidget):
 
             if file_url and position is not None:
                 filename = os.path.basename(QUrl(file_url).toLocalFile())
-                self.setWindowTitle(f"Last Loaded: {filename}")
+                self.filename = filename
+                self.setTitle(filename)
                 self.mediaPlayer.setMedia(QMediaContent(QUrl(file_url)))
                 self.mediaPlayer.setPosition(position)
 
@@ -134,10 +196,20 @@ class VideoPlayer(QWidget):
             self.mediaPlayer.play()
 
             name = os.path.basename(QUrl(fileUrl).toLocalFile())
-            self.setWindowTitle(f"Loaded: {name}")
+            self.filename = name
+            self.setTitle(name)
 
         else:
             exit()
+            
+    def setTitle(self, filename):
+        timerState = ""
+        if self.timer_active:
+            timerState = "TimerOn"
+        else:
+            timerState = "TimerOff"     
+        self.setWindowTitle(f"{timerState}:{int(self.timer_duration/1000)}s - {filename}")
+               
     
     def stopAndClose(self):
         try:
