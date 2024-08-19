@@ -45,7 +45,7 @@ class VideoPlayer(QWidget):
 
         # Set up the window
         self.setWindowTitle("No Skip Video Player")
-        self.setWindowIcon(QIcon("/home/adam178/MyGitRepos/no-skip-video/icon.png"))
+        self.setWindowIcon(QIcon("/home/adam178/MyGitRepos/no-skip-video-player/icon.png"))
         self.setGeometry(100, 100, 800, 450)
 
         # Timer to stop video after a specific time
@@ -129,7 +129,7 @@ class VideoPlayer(QWidget):
         
         if ok:
             self.timer_duration = minutes * 60000  # Convert minutes to milliseconds
-            edit_value("timer_set", self.timer_duration, self.config)
+            edit_value("timer_set", self.timer_duration, self.config_file)
             self.timer_active = True
             self.setTitle(self.filename)
             self.timer.start(self.timer_duration)
