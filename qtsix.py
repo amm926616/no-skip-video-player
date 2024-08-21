@@ -72,7 +72,7 @@ class VideoPlayer(QWidget):
                 last_position = json.load(f)
 
             file_url = last_position.get("file")
-            position = last_position.gNet("position")
+            position = last_position.get("position")
 
             if file_url and position:
                 self.mediaPlayer.setSource(QUrl(file_url))
