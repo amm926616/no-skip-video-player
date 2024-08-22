@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=No Skip Video Player
+Comment=Enjoy the video as a whole. 
+Exec=python /usr/bin/no-skip-video-player/main.py
+Icon=/usr/bin/no-skip-video-player/resources/icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Software;
