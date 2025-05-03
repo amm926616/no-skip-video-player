@@ -167,15 +167,22 @@ class NoSkipVideoPlayer(QWidget):
         elif event.key() == Qt.Key_I and event.modifiers() & Qt.ShiftModifier:
             self.show_current_position()
         elif event.key() == Qt.Key_A and event.modifiers() & Qt.ShiftModifier:
-            self.toggle_always_on_top()
+            self.toggle_always_on_top()     
         elif event.key() == Qt.Key_F or (event.key() == Qt.Key_F and event.modifiers() & Qt.ControlModifier):
-            self.toggle_fullscreen()
+            self.toggle_fullscreen()        
+        elif event.key() == Qt.Key_Left:
+            self.rewind_few_seconds()
         elif event.key() == Qt.Key_Escape and self.isFullScreen():
             self.toggle_fullscreen()
         elif event.key() == Qt.Key_Q and event.modifiers() & Qt.ControlModifier:
             self.close()
         else:
             super().keyPressEvent(event)
+
+    def rewind_few_seconds(self, seconds=1):
+        """Rewind playback by a few seconds"""
+        new_position = max(0, self.mediaPlayer.position() - seconds * 1000)
+        self.mediaPlayer.setPosition(new_position)
 
     def toggle_fullscreen(self):
         """Toggle fullscreen mode for pure video playback"""
