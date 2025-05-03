@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QInputDialog,
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import QUrl, Qt, QTimer
-from PyQt5.QtGui import QIcon, QTransform
+from PyQt5.QtGui import QIcon
 
 class NoSkipVideoPlayer(QWidget):
     def __init__(self):
@@ -16,11 +16,13 @@ class NoSkipVideoPlayer(QWidget):
 
         self.setStyleSheet("background-color: black;")
 
+        self.script_path = os.path.dirname(os.path.abspath(__file__))
+
         self.play_icon = QIcon.fromTheme("media-playback-start")
         self.pause_icon = QIcon.fromTheme("media-playback-pause")
 
-        self.timer_on_icon = QIcon("icons/timer-on.png")
-        self.timer_off_icon = QIcon("icons/timer-off.png")
+        self.timer_on_icon = QIcon(os.path.join(self.script_path, "icons", "timer-on.png"))
+        self.timer_off_icon = QIcon(os.path.join(self.script_path, "icons", "timer-off.png"))
 
         # Configuration setup
         self.config_dir = os.path.expanduser("~/.config/no-skip-video-player")
@@ -121,7 +123,7 @@ class NoSkipVideoPlayer(QWidget):
         self.toolbar.addAction(self.timer_action)
 
         # Toggle Timer action
-        self.toggle_timer_action = QAction(self.timer_off_icon, "Toggle Timer (Ctrl+T)", self)
+        self.toggle_timer_action = QAction(self.timer_on_icon, "Toggle Timer (Ctrl+T)", self)
         self.toggle_timer_action.triggered.connect(self.toggle_timer)
         self.toolbar.addAction(self.toggle_timer_action)
                 
