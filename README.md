@@ -1,9 +1,10 @@
-No Skip Video Player in Python (PyQt)
+## No Skip Video Player in Python (PyQt)
 
-A minimalist, no-skip video experience.
+#### A minimalist, no-skip video experience.
 
 Like eating a whole cake — no skipping allowed.
 This player encourages full consumption: from start to finish, no fast-forwarding.
+
 ✨ Features
 
     ❌ No seeking — You have to watch the video entirely.
@@ -21,15 +22,19 @@ This player encourages full consumption: from start to finish, no fast-forwardin
     🖥️ Cross-platform — Works on Linux, Windows, and macOS with Python and PyQt5.
 
 🎮 Shortcuts
-Action	Shortcut
-Load video	Shift + N
-Set sleep timer	Shift + T
-Toggle timer ON/OFF	Ctrl + T
-Show current position	Shift + I
-Toggle always on top	Shift + A
-Toggle fullscreen	F or Ctrl + F
-Play/Pause video	Space
-Quit	Ctrl + Q
+
+| Action                | Shortcut          |
+| --------------------- | ----------------- |
+| Load video            | `Shift + N`       |
+| Set sleep timer       | `Shift + T`       |
+| Toggle timer ON/OFF   | `Ctrl + T`        |
+| Show current position | `Shift + I`       |
+| Toggle always on top  | `Shift + A`       |
+| Toggle fullscreen     | `F` or `Ctrl + F` |
+| Play/Pause video      | `Space`           |
+| Quit                  | `Ctrl + Q`        |
+
+
 🗃️ Config Storage
 
 Configuration and state are saved to:
