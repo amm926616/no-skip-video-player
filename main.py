@@ -18,7 +18,10 @@ class NoSkipVideoPlayer(QWidget):
 
         self.play_icon = QIcon.fromTheme("media-playback-start")
         self.pause_icon = QIcon.fromTheme("media-playback-pause")
-        
+
+        self.timer_on_icon = QIcon("icons/timer-on.png")
+        self.timer_off_icon = QIcon("icons/timer-off.png")
+
         # Configuration setup
         self.config_dir = os.path.expanduser("~/.config/no-skip-video-player")
         self.config_file = os.path.join(self.config_dir, "config.json")
@@ -106,7 +109,7 @@ class NoSkipVideoPlayer(QWidget):
         self.play_action = QAction(self.pause_icon, "Play/Pause (Space)", self)
         self.play_action.triggered.connect(self.toggle_playback)
         self.toolbar.addAction(self.play_action)
-        
+
         # Load Video action
         self.load_action = QAction(QIcon.fromTheme("document-open"), "Load Video (Shift+N)", self)
         self.load_action.triggered.connect(self.load_video)
@@ -116,12 +119,12 @@ class NoSkipVideoPlayer(QWidget):
         self.timer_action = QAction(QIcon.fromTheme("chronometer"), "Set Sleep Timer (Shift+T)", self)
         self.timer_action.triggered.connect(self.set_sleep_timer)
         self.toolbar.addAction(self.timer_action)
-        
+
         # Toggle Timer action
-        self.toggle_timer_action = QAction(QIcon.fromTheme("alarm-suspended"), "Toggle Timer (Ctrl+T)", self)
+        self.toggle_timer_action = QAction(self.timer_off_icon, "Toggle Timer (Ctrl+T)", self)
         self.toggle_timer_action.triggered.connect(self.toggle_timer)
         self.toolbar.addAction(self.toggle_timer_action)
-        
+                
         # Show Position action
         self.position_action = QAction(QIcon.fromTheme("preferences-system-time"), "Show Position (Shift+I)", self)
         self.position_action.triggered.connect(self.show_current_position)
@@ -196,18 +199,20 @@ class NoSkipVideoPlayer(QWidget):
         """Toggle between play and pause, and update icon"""
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
             self.mediaPlayer.pause()
-            self.play_action.setIcon(self.play_icon)
         else:
             self.mediaPlayer.play()
-            self.play_action.setIcon(self.pause_icon)
+
+        self.play_action.setIcon(self.pause_icon if self.mediaPlayer.state() == QMediaPlayer.PlayingState else self.play_icon)
 
     def toggle_timer(self):
         """Toggle the sleep timer on/off"""
         self.config["timer_active"] = not self.config["timer_active"]
         if self.config["timer_active"]:
             self.timer.start(self.config["timer_duration"])
+            self.toggle_timer_action.setIcon(self.timer_on_icon)
         else:
             self.timer.stop()
+            self.toggle_timer_action.setIcon(self.timer_off_icon)
         self.update_window_title()
         self.save_config()
 
