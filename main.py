@@ -3,11 +3,11 @@
 import sys
 import os
 import json
-from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QInputDialog, 
-                            QMessageBox, QFileDialog, QToolBar, QAction)
+from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QInputDialog,
+                                     QMessageBox, QFileDialog, QToolBar, QAction, QLabel)
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
-from PyQt5.QtCore import QUrl, Qt, QTimer
+from PyQt5.QtCore import QUrl, Qt, QTimer, QTime
 from PyQt5.QtGui import QIcon
 
 class NoSkipVideoPlayer(QWidget):
@@ -28,29 +28,34 @@ class NoSkipVideoPlayer(QWidget):
         self.config_dir = os.path.expanduser("~/.config/no-skip-video-player")
         self.config_file = os.path.join(self.config_dir, "config.json")
         self.ensure_config_exists()
-        
+
         # Load configuration
         self.config = self.load_config()
-        
+
         # Initialize media player
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         self.videoWidget = QVideoWidget()
         self.mediaPlayer.setVideoOutput(self.videoWidget)
-        
+
         # Setup UI
         self.setup_ui()
-        
-        # Timer setup
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.close)  # Changed to use close() directly
-        
+
+        # Timer setup for closing
+        self.close_timer = QTimer(self)
+        self.close_timer.timeout.connect(self.close)
+
+        # Timer setup for updating remaining time display
+        self.remaining_time_timer = QTimer(self)
+        self.remaining_time_timer.timeout.connect(self.update_remaining_time_display)
+        self.remaining_time_timer.setInterval(1000)  # Update every second
+
         # Current file tracking
         self.current_file = ""
-        
+
         # Event connections
         self.mediaPlayer.mediaStatusChanged.connect(self.handle_media_status)
         self.mediaPlayer.positionChanged.connect(self.save_position_auto)
-        
+
         # Load last session
         self.load_last_session()
 
@@ -84,21 +89,27 @@ class NoSkipVideoPlayer(QWidget):
         # Main layout
         layout = QVBoxLayout()
         self.setLayout(layout)
-        
+
         # Create toolbar
         self.toolbar = QToolBar("Main Toolbar")
         layout.addWidget(self.toolbar)
-        
+
         # Add actions to toolbar
         self.create_actions()
-        
+
         # Add video widget
         layout.addWidget(self.videoWidget)
-        
+
+        # Remaining time label
+        self.remaining_time_label = QLabel("")
+        self.remaining_time_label.setAlignment(Qt.AlignCenter)
+        self.remaining_time_label.setStyleSheet("color: white;")
+        layout.addWidget(self.remaining_time_label)
+
         # Window settings
         self.setWindowTitle("No Skip Video Player")
         self.setGeometry(100, 100, 800, 450)
-        
+
         # Set initial window state
         if self.config["always_on_top"]:
             self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
@@ -116,7 +127,7 @@ class NoSkipVideoPlayer(QWidget):
         self.load_action = QAction(QIcon.fromTheme("document-open"), "Load Video (Ctrl+O)", self)
         self.load_action.triggered.connect(self.load_video)
         self.toolbar.addAction(self.load_action)
-        
+
         # Set Timer action
         self.timer_action = QAction(QIcon.fromTheme("chronometer"), "Set Sleep Timer (Shift+T)", self)
         self.timer_action.triggered.connect(self.set_sleep_timer)
@@ -126,17 +137,17 @@ class NoSkipVideoPlayer(QWidget):
         self.toggle_timer_action = QAction(self.timer_on_icon, "Toggle Timer (Ctrl+T)", self)
         self.toggle_timer_action.triggered.connect(self.toggle_timer)
         self.toolbar.addAction(self.toggle_timer_action)
-                
+
         # Show Position action
         self.position_action = QAction(QIcon.fromTheme("preferences-system-time"), "Show Position (Shift+I)", self)
         self.position_action.triggered.connect(self.show_current_position)
         self.toolbar.addAction(self.position_action)
-        
+
         # Always On Top action
         self.always_top_action = QAction(QIcon.fromTheme("window-pin"), "Always On Top (Shift+A)", self)
         self.always_top_action.triggered.connect(self.toggle_always_on_top)
         self.toolbar.addAction(self.always_top_action)
-        
+
         # Fullscreen action
         self.fullscreen_action = QAction(QIcon.fromTheme("view-fullscreen"), "Toggle Fullscreen (F or Ctrl+F)", self)
         self.fullscreen_action.triggered.connect(self.toggle_fullscreen)
@@ -167,9 +178,9 @@ class NoSkipVideoPlayer(QWidget):
         elif event.key() == Qt.Key_I and event.modifiers() & Qt.ShiftModifier:
             self.show_current_position()
         elif event.key() == Qt.Key_A and event.modifiers() & Qt.ShiftModifier:
-            self.toggle_always_on_top()     
+            self.toggle_always_on_top()
         elif event.key() == Qt.Key_F or (event.key() == Qt.Key_F and event.modifiers() & Qt.ControlModifier):
-            self.toggle_fullscreen()        
+            self.toggle_fullscreen()
         elif event.key() == Qt.Key_Left:
             self.rewind_few_seconds()
         elif event.key() == Qt.Key_Escape and self.isFullScreen():
@@ -191,6 +202,7 @@ class NoSkipVideoPlayer(QWidget):
             self.showNormal()
             self.setWindowFlags(self.windowFlags() & ~Qt.FramelessWindowHint)
             self.toolbar.show()
+            self.remaining_time_label.show()
             if self.config["always_on_top"]:
                 self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
             self.show()
@@ -199,6 +211,7 @@ class NoSkipVideoPlayer(QWidget):
             # Enter fullscreen: hide everything except video
             self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
             self.toolbar.hide()
+            self.remaining_time_label.hide()
             self.showFullScreen()
             self.config["fullscreen"] = True
 
@@ -217,10 +230,13 @@ class NoSkipVideoPlayer(QWidget):
         """Toggle the sleep timer on/off"""
         self.config["timer_active"] = not self.config["timer_active"]
         if self.config["timer_active"]:
-            self.timer.start(self.config["timer_duration"])
+            self.close_timer.start(self.config["timer_duration"])
+            self.remaining_time_timer.start()
             self.toggle_timer_action.setIcon(self.timer_on_icon)
         else:
-            self.timer.stop()
+            self.close_timer.stop()
+            self.remaining_time_timer.stop()
+            self.remaining_time_label.setText("")
             self.toggle_timer_action.setIcon(self.timer_off_icon)
         self.update_window_title()
         self.save_config()
@@ -228,28 +244,40 @@ class NoSkipVideoPlayer(QWidget):
     def set_sleep_timer(self):
         """Set a sleep timer duration"""
         minutes, ok = QInputDialog.getInt(
-            self, "Set Sleep Timer", 
-            "Enter sleep time in minutes:", 
+            self, "Set Sleep Timer",
+            "Enter sleep time in minutes:",
             self.config["timer_duration"] // 60000, 1, 120, 1
         )
-        
+
         if ok:
             self.config["timer_duration"] = minutes * 60000
             self.config["timer_active"] = True
-            self.timer.start(self.config["timer_duration"])
+            self.close_timer.start(self.config["timer_duration"])
+            self.remaining_time_timer.start()
             self.update_window_title()
             self.save_config()
             QMessageBox.information(
-                self, "Timer Set", 
+                self, "Timer Set",
                 f"Video will stop in {minutes} minutes."
             )
+            self.toggle_timer_action.setIcon(self.timer_on_icon)
+            self.update_remaining_time_display()
+
+    def update_remaining_time_display(self):
+        """Update the display of the remaining time"""
+        if self.config["timer_active"]:
+            remaining_ms = self.close_timer.remainingTime()
+            remaining_time = QTime(0, 0, 0).addMSecs(remaining_ms)
+            self.remaining_time_label.setText(f"Remaining: {remaining_time.toString('mm:ss')}")
+        else:
+            self.remaining_time_label.setText("")
 
     def show_current_position(self):
         """Show current playback position in minutes"""
         current_pos = self.mediaPlayer.position()
         minutes = current_pos / 60000
         QMessageBox.information(
-            self, "Current Position", 
+            self, "Current Position",
             f"Current position: {minutes:.2f} minutes"
         )
 
@@ -268,19 +296,22 @@ class NoSkipVideoPlayer(QWidget):
             self.mediaPlayer.setPosition(self.config["last_position"])
             self.mediaPlayer.play()
             self.update_window_title()
-            
+
             if self.config["timer_active"]:
-                self.timer.start(self.config["timer_duration"])
+                self.close_timer.start(self.config["timer_duration"])
+                self.remaining_time_timer.start()
+                self.toggle_timer_action.setIcon(self.timer_on_icon)
+                self.update_remaining_time_display()
         else:
             self.load_video()
 
     def load_video(self):
         """Open a file dialog to select a video file"""
         file_path, _ = QFileDialog.getOpenFileName(
-            self, "Open Video File", 
+            self, "Open Video File",
             "", "Video Files (*.mp4 *.avi *.mkv *.mov)"
         )
-        
+
         if file_path:
             self.current_file = file_path
             self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
@@ -311,7 +342,7 @@ class NoSkipVideoPlayer(QWidget):
         self.show()
         self.save_config()
         QMessageBox.information(
-            self, "Always On Top", 
+            self, "Always On Top",
             f"Always on top: {'Enabled' if self.config['always_on_top'] else 'Disabled'}"
         )
 
