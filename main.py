@@ -113,7 +113,7 @@ class NoSkipVideoPlayer(QWidget):
         self.toolbar.addAction(self.play_action)
 
         # Load Video action
-        self.load_action = QAction(QIcon.fromTheme("document-open"), "Load Video (Shift+N)", self)
+        self.load_action = QAction(QIcon.fromTheme("document-open"), "Load Video (Ctrl+O)", self)
         self.load_action.triggered.connect(self.load_video)
         self.toolbar.addAction(self.load_action)
         
@@ -162,7 +162,7 @@ class NoSkipVideoPlayer(QWidget):
             self.set_sleep_timer()
         elif event.key() == Qt.Key_T and event.modifiers() & Qt.ControlModifier:
             self.toggle_timer()
-        elif event.key() == Qt.Key_N and event.modifiers() & Qt.ShiftModifier:
+        elif event.key() == Qt.Key_O and event.modifiers() & Qt.ControlModifier:
             self.load_video()
         elif event.key() == Qt.Key_I and event.modifiers() & Qt.ShiftModifier:
             self.show_current_position()
